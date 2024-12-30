@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Publisher Dashboard</title>
+  <link rel="stylesheet" href="publisherStyle.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+
+<body>
+
+  <!-- Sidebar Navigation -->
+  <div class="sidebar">
+    <div class="logo">Book Heaven Publisher</div>
+    <ul>
+      <li>
+        <a href="#overview"><i class="fas fa-tachometer-alt"></i> Dashboard Overview</a>
+      </li>
+      <li>
+        <a href="#manage-listings"><i class="fas fa-book"></i> Manage Listings</a>
+      </li>
+      <li>
+        <a href="#orders"><i class="fas fa-shopping-cart"></i> Orders
+          <span id="order-notification" class="badge"></span></a>
+      </li>
+      <li>
+        <a href="#discounts"><i class="fas fa-tags"></i> Manage Discounts</a>
+      </li>
+      <li>
+        <a href="#reviews"><i class="fas fa-star"></i> Buyer Reviews</a>
+      </li>
+      <li>
+        <a href="#analytics"><i class="fas fa-chart-line"></i> Analytics</a>
+      </li>
+      <!-- <li>
+          <a href="#messages"><i class="fas fa-envelope"></i> Messages</a>
+        </li> -->
+      <li>
+        <a href="#profile"><i class="fas fa-user"></i> Account Settings</a>
+      </li>
+      <li>
+        <a href="#logout" class="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- Dashboard Overview -->
+    <section id="overview">
+      <h2>Dashboard Overview</h2>
+      <div class="overview-cards">
+        <div class="card">
+          <h3>Total Sales</h3>
+          <p><span id="total-sales">0</span></p>
+        </div>
+        <div class="card">
+          <h3>Books Listed</h3>
+          <p><span id="total-books">0</span></p>
+        </div>
+        <div class="card">
+          <h3>Orders</h3>
+          <p><span id="order-count">0</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Manage Listings -->
+    <section id="manage-listings">
+      <h2>Manage Listings</h2>
+      <button id="add-book" class="btn">Add New Book</button>
+
+      <!-- Modal for Adding Book (Initially Hidden) -->
+      <div id="addBookModal" class="modal" style="display: none">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Add New Book</h2>
+          <form id="add-book-form" enctype="multipart/form-data" method="POST" action="/publisher/add-book">
+            <label for="book-title">Title</label>
+            <input type="text" id="book-title" placeholder="Book Title" required />
+
+            <label for="book-author">Author</label>
+            <input type="text" id="book-author" placeholder="Book Author" required />
+
+            <label for="book-description">Description</label>
+            <input type="text" id="book-description" placeholder="Book Description" required />
+
+            <label for="book-publishedYear">Published Year</label>
+            <input type="number" id="book-publishedYear" placeholder="Book Published Year" required />
+
+            <label for="book-category">Category</label>
+            <input type="text" id="book-category" placeholder="Enter categories, separated by commas" required />
+
+            <label for="book-price">Price</label>
+            <input type="text" id="book-price" placeholder="Book Price" required />
+
+            <label for="book-stock">Stock</label>
+            <input type="text" id="book-stock" placeholder="Book Stock" required />
+            <div style="display: flex; gap: 20px; align-items: center; margin-bottom: 10px;">
+              <!-- Toggle between URL and File Upload -->
+              <label style="display: flex; align-items: center; gap: 5px;">
+                <input type="radio" name="cover-image-option" value="url" checked onclick="toggleInput('url')" />
+                Use URL
+              </label>
+              <label style="display: flex; align-items: center; gap: 5px;">
+                <input type="radio" name="cover-image-option" value="upload" onclick="toggleInput('upload')" />
+                Upload File
+              </label>
+            </div>
+            <!-- URL Input -->
+            <div id="url-input-container" style="margin-bottom: 15px;">
+              <label for="book-cover-url">Cover Image URL</label>
+              <input type="text" id="book-cover-url" placeholder="URL of Cover Image"
+                style="display: block; margin-top: 5px;" />
+            </div>
+            <!-- File Upload -->
+            <div id="file-input-container" style="display: none; margin-bottom: 15px;">
+              <label for="book-cover-upload">Upload Cover Image</label>
+              <input type="file" name="book-cover=upload" id="book-cover-upload" accept="image/*"
+                style="display: block; margin-top: 5px;" />
+              <small style="display: block; margin-top: 5px;">Supported formats: JPG, PNG, GIF. Max size: 2MB.</small>
+            </div>
+            <button type="submit" class="btn">Add Book</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Modal for Editing Book (Initially Hidden) -->
+      <div id="editBookModal" class="modal" style="display: none;">
+        <div class="modal-content">
+          <span class="close" onclick="closeEditBookModal()">&times;</span>
+          <h2>Edit Book</h2>
+          <form id="edit-book-form" enctype="multipart/form-data" action="/publisher/update">
+            <!-- Hidden field to store the book's unique ID for submission  -->
+            <input type="hidden" id="edit-book-id" name="book-id">
+
+            <label for="edit-book-title">Title</label>
+            <input type="text" id="edit-book-title" placeholder="Book Title" required />
+
+            <label for="edit-book-author">Author</label>
+            <input type="text" id="edit-book-author" placeholder="Book Author" required />
+
+            <label for="edit-book-description">Description</label>
+            <input type="text" id="edit-book-description" placeholder="Book Description" required />
+
+            <label for="edit-book-publishedYear">Published Year</label>
+            <input type="number" id="edit-book-publishedYear" placeholder="Book Published Year" required />
+
+            <label for="edit-book-category">Category</label>
+            <input type="text" id="edit-book-category" placeholder="Enter categories, separated by commas" required />
+
+            <label for="edit-book-price">Price</label>
+            <input type="text" id="edit-book-price" placeholder="Book Price" required />
+
+            <label for="edit-book-stock">Stock</label>
+            <input type="text" id="edit-book-stock" placeholder="Book Stock" required />
+
+            <div style="display: flex; gap: 20px; align-items: center; margin-bottom: 10px;">
+              <!-- Toggle between URL and File Upload  -->
+              <label style="display: flex; align-items: center; gap: 5px;">
+                <input type="radio" name="cover-image-option" value="url" checked
+                  onclick="toggleInputEdit('url', true)" />
+                <!-- Use URL -->
+              </label>
+              <label style="display: flex; align-items: center; gap: 5px;">
+                <input type="radio" name="cover-image-option" value="upload"
+                  onclick="toggleInputEdit('upload', true)" />
+                Upload File
+              </label>
+            </div>
+            <!-- URL Input  -->
+            <div id="edit-url-input-container" style="margin-bottom: 15px;">
+              <label for="edit-book-cover-url">Cover Image URL</label>
+              <input type="text" id="edit-book-cover-url" placeholder="URL of Cover Image"
+                style="display: block; margin-top: 5px;" />
+            </div>
+            <!-- File Upload  -->
+            <div id="edit-file-input-container" style="display: none; margin-bottom: 15px;">
+              <label for="edit-book-cover-upload">Upload Cover Image</label>
+              <input type="file" name="edit-book-cover-upload" id="edit-book-cover-upload" accept="image/*"
+                style="display: block; margin-top: 5px;" />
+              <small style="display: block; margin-top: 5px;">Supported formats: JPG, PNG, GIF. Max size: 2MB.</small>
+            </div>
+            <button type="submit" class="btn" id="update-button">Update Book</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="book-table">
+        <!-- Book list with edit/delete options will be dynamically populated here -->
+      </div>
+    </section>
+
+    <!-- Manage Discounts -->
+<section id="discounts">
+  <h2>Manage Discounts</h2>
+  <form id="discount-form">
+    <label for="discount-code">Discount Code</label>
+    <input type="text" id="discount-code" placeholder="Enter Discount Code" required />
+
+    <label for="discount-description">Description</label>
+    <textarea id="discount-description" placeholder="Enter Discount Description" required></textarea>
+
+    <label for="discount-value">Discount Value</label>
+    <input type="number" id="discount-value" placeholder="Enter Discount Value" required />
+
+    <label for="discount-expiry">Expiry Date</label>
+    <input type="date" id="discount-expiry" required />
+
+    <label for="book-select">Select Book</label>
+    <select id="book-select" required>
+      <!-- Book options will be dynamically populated -->
+    </select>
+
+    <button type="submit" class="btn">Apply Discount</button>
+  </form>
+</section>
+
+
+    <!-- Orders -->
+    <section id="orders">
+      <h2>Orders</h2>
+      <div class="orders-list">
+        <!-- Order details will be dynamically populated here -->
+      </div>
+      <!-- Modal for Updating Shipping Details -->
+      <div id="updateShippingModal" class="modal" style="display: none">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Update Shipping Details</h2>
+          <form id="update-shipping-form">
+            <input type="hidden" id="shipping-order-id" />
+
+            <label for="shipping-status">Shipping Status</label>
+            <select id="shipping-status" required>
+              <option value="Processing">Processing</option>
+              <option value="Shipped">Shipped</option>
+              <option value="Delivered">Delivered</option>
+            </select>
+
+            <label for="shipping-date">Shipping Date</label>
+            <input type="date" id="shipping-date" required />
+
+            <button type="submit" class="btn">Update Details</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Buyer Reviews -->
+    <section id="reviews">
+      <h2>Buyer Reviews</h2>
+      <div class="reviews-container">
+        <!-- Reviews and publisher responses will be dynamically populated here -->
+      </div>
+    </section>
+
+    <!-- Analytics -->
+    <section id="analytics">
+      <h2>Analytics</h2>
+      <div>
+        <p class="chart-title">Sales Over Time</p>
+        <canvas id="salesChart1"></canvas>
+      </div>
+      <div>
+        <p class="chart-title">Top-Selling Books</p>
+        <canvas id="salesChart2"></canvas>
+      </div>
+
+    </section>
+
+    <!-- Messages -->
+    <!-- <section id="messages">
+        <h2>Messages</h2>
+        <div class="messages-container"> -->
+    <!-- List of messages and conversation view -->
+    <!-- </div>
+      </section> -->
+
+    <!-- Profile Settings -->
+    <section id="profile">
+      <h2>Account Settings</h2>
+      <form id="profile-form" enctype="multipart/form-data">
+
+        <!-- Company Name -->
+        <label for="company-name">Company Name</label>
+        <input type="text" id="company-name" placeholder="Your Company Name" />
+
+        <!-- Email Address -->
+        <label for="name">Email</label>
+        <input type="text" id="name" placeholder="Your Name" />
+
+        <!-- Phone Number -->
+        <label for="phone-number">Phone Number</label>
+        <input type="tel" id="phone-number" placeholder="Your Phone Number" />
+
+        <!-- Address -->
+        <label for="address">Address</label>
+        <input type="text" id="address" placeholder="Your Address" />
+
+        <!-- Password Fields -->
+        <label for="oPassword">Old Password</label>
+        <input type="password" id="oPassword" placeholder="Your Old Password" />
+
+        <label for="nPassword">New Password</label>
+        <input type="password" id="nPassword" placeholder="Your New Password" />
+
+        <!-- Legal Document Upload -->
+        <label for="legal-document">Legal Document</label>
+        <input type="file" id="legal-document" name="legal-document" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" />
+        <small style="display: block; margin-top: 5px;">If you want to update document. Upload new document
+          here.</small>
+
+        <!-- Update Profile Button -->
+        <button type="submit" class="btn" id="update-profile-btn" onclick="updatebook()">Update Profile</button>
+      </form>
+    </section>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="db.js"></script>
+  <script src="publisherScript.js"></script>
+</body>
+
+</html>

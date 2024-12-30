@@ -1,0 +1,1058 @@
+.custom-navbar {
+    padding-top: 18px;  
+    padding-bottom: 18px;  
+}
+
+.navbar-brand {
+    font-family: 'Cinzel', cursive; 
+    font-size: 30px; 
+    font-weight: 700;
+}
+
+.cinzel-font{
+    font-family: 'Cinzel', cursive; 
+}
+
+.bolding{
+    font-weight: 500;
+}
+
+.hero-section {
+    background-image: url('./aaron-burden-QJDzYT_K8Xg-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 0;
+    color: white;
+}
+
+.card-img-top {
+    width: 300px;
+    height: auto; 
+}
+
+.featured-books a {
+    color: #ff0000; /* Change this to your desired color */
+    text-decoration: none; /* Optional: to remove the underline */
+}
+
+.featured-books .btn {
+    background-color: #154721; /* Change button background color */
+    color: #ffffff; /* Change text color */
+}
+
+.featured-books .btn:hover {
+    background-color: #3d54c7; /* Change button background on hover */
+    color: #ffffff; /* Keep text color on hover */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    display: none; 
+    left: 0%;
+    right: 0%;
+}
+
+.featured-books h2{
+    text-align: center;
+}
+
+/* Book Categories Section */
+.book-categories {
+    padding: 40px 0;
+    background-color: #f9f9f9;
+}
+
+.book-categories h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.category-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.category-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.category-icon {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.category-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.category-card .btn {
+    color: #007bff;
+    border-color: #007bff;
+}
+
+.category-card .btn:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .category-card {
+        margin-bottom: 20px;
+    }
+}
+
+.best-sellers {
+    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    padding: 40px 0;
+}
+
+.best-sellers .card {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    border-radius: 10px;
+}
+
+.best-sellers .card:hover {
+    transform: scale(1.05);
+}
+
+.best-sellers h2 {
+    text-align: center;
+}
+
+.best-seller-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: red;
+    color: white;
+    padding: 5px 10px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.new-arrivals h2{
+    text-align: center;
+}
+
+.feedback-section {
+    background-color: #f0f4f8; /* Light background color */
+    padding: 40px 0; /* Add padding */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+.feedback-section h2 {
+    font-size: 2.5rem; /* Larger font for headings */
+    margin-bottom: 15px; /* Space below heading */
+    color: #333; /* Darker text color */
+}
+
+.feedback-section p {
+    font-size: 1.2rem; /* Readable font size */
+    margin-bottom: 30px; /* Space below paragraph */
+}
+
+.feedback-form {
+    max-width: 600px; /* Limit width for better readability */
+    margin: 0 auto; /* Center form */
+}
+
+.feedback-card {
+    background-color: #fff; /* White background for feedback card */
+    padding: 20px; /* Inner padding */
+    border-radius: 5px; /* Rounded corners */
+    margin-bottom: 20px; /* Space between feedback cards */
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+.customer-feedback {
+    display: flex;
+    flex-direction: column; /* Stack feedback cards vertically */
+    align-items: center; /* Center alignment */
+}
+
+.feedback-card h6 {
+    margin-top: 10px; /* Space above name */
+    color: #555; /* Subtle color for the name */
+    font-weight: normal; /* Normal weight for names */
+}
+
+.footer {
+    background-color: #1d2c29; /* Dark background color */
+    color: #ffffff; /* White text color */
+    padding: 40px 0; /* Padding for top and bottom */
+}
+
+.footer h5 {
+    font-size: 1.5rem; /* Larger font for headings */
+    margin-bottom: 20px; /* Space below heading */
+}
+
+.footer p {
+    margin: 0; /* Reset default margin */
+}
+
+.footer .list-unstyled {
+    padding-left: 0; /* Remove default padding */
+}
+
+.footer .footer-link {
+    color: #ffffff; /* White link color */
+    text-decoration: none; /* No underline */
+}
+
+.footer .footer-link:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+.social-icons {
+    margin-top: 10px; /* Space above social icons */
+}
+
+.social-icon {
+    color: #ffffff; /* White color for icons */
+    font-size: 1.5rem; /* Larger icon size */
+    margin: 0 10px; /* Space between icons */
+}
+
+.footer hr {
+    border-top: 1px solid #ffffff; /* White line for separation */
+    margin-top: 20px; /* Space above line */
+    margin-bottom: 20px; /* Space below line */
+}
+
+.footer p {
+    font-size: 0.9rem; /* Smaller font for copyright notice */
+    margin-bottom: 0; /* Remove bottom margin */
+}
+
+.custom-navbar {
+    background-color: #1d2c29; /* Same color as footer */
+}
+
+.custom-navbar .nav-link {
+    color: #ffffff; /* White text color for links */
+}
+
+.custom-navbar .nav-link:hover {
+    color: #ffc107; /* Change color on hover, optional */
+}
+
+.custom-navbar .navbar-brand {
+    color: #ffffff; /* White text for brand */
+}
+
+.custom-navbar .navbar-brand:hover {
+    color: #ffc107; /* Change color on hover, optional */
+}
+
+.hero-section .btn {
+    background-color: #154721; /* Change button background color */
+    color: #ffffff; /* Change text color */
+}
+
+.hero-section .btn:hover {
+    background-color: #3d54c7; /* Change button background on hover */
+    color: #ffffff; /* Keep text color on hover */
+}
+
+.best-sellers .btn {
+    background-color: #154721; /* Change button background color */
+    color: #ffffff; /* Change text color */
+}
+
+.best-sellers .btn:hover {
+    background-color: #3d54c7; /* Change button background on hover */
+    color: #ffffff; /* Keep text color on hover */
+}
+
+.new-arrivals .btn {
+    background-color: #154721; /* Change button background color */
+    color: #ffffff; /* Change text color */
+}
+
+.new-arrivals .btn:hover {
+    background-color: #3d54c7; /* Change button background on hover */
+    color: #ffffff; /* Keep text color on hover */
+}
+ 
+.hero-section .container{
+    color: #f9f9f9;
+    text-shadow: #555;
+}
+
+.about-image{
+    width: 150px;
+    height: auto;
+}
+
+.hero-section h1{
+    color: #000;
+}
+
+.hero-section p{
+    color: #000;
+}
+
+.modal-content {
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.modal-header {
+    border-bottom: none;
+}
+
+.modal-title {
+    font-weight: bold;
+}
+
+.form-group label {
+    font-weight: 500;
+}
+
+.form-control {
+    border-radius: 5px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+}
+
+.btn-outline-danger {
+    border-radius: 5px;
+}
+
+.nav-tabs .nav-item {
+    width: 50%;
+    text-align: center;
+}
+
+.nav-tabs .nav-link {
+    font-weight: 600;
+    color: #007bff;
+}
+
+.nav-tabs .nav-link.active {
+    color: #495057;
+    background-color: #e9ecef;
+    border-color: #dee2e6 #dee2e6 #f8f9fa;
+}
+
+/* Modal Styling */
+.custom-modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dim background */
+    z-index: 1050;
+    overflow: auto; /* Allow scrolling for long content */
+}
+
+.custom-modal-dialog {
+    position: relative;
+    margin: 10% auto;
+    background: white;
+    border-radius: 5px;
+    width: 90%;
+    max-width: 500px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.custom-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.custom-modal-title {
+    font-size: 18px;
+    margin: 0;
+}
+
+.custom-close {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.custom-modal-body {
+    padding: 15px 0;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+button {
+    cursor: pointer;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#googleStoreNameField {
+    display: none; /* Hidden by default */
+}
+
+/* Style for the cart icon */
+.cart-icon {
+    font-size: 24px;
+    color: white; /* Change color to white */
+    cursor: pointer;
+    padding: 10px;
+  }
+  
+  .cart-icon:hover {
+    color: #007bff; /* Optional: Change color on hover */
+  }
+
+/* Style the customer dropdown for better visibility */
+.navbar .dropdown-menu {
+    background-color: #f8f9fa;
+    border: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .dropdown-menu a {
+    color: #333;
+    font-weight: 500;
+    padding: 10px 20px;
+}
+
+.navbar .dropdown-menu a:hover {
+    background-color: #f1f1f1;
+    color: #007bff;
+}
+
+/* Style the user icon */
+.navbar-nav .fa-user-circle {
+    font-size: 1.5rem;
+    margin-right: 5px;
+}
+
+
+/* Modal Background */
+.cuustom-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  /* Modal Dialog */
+  .cuustom-modal-dialog {
+    width: 90%;
+    max-width: 600px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+  }
+  
+  /* Modal Header */
+  .cuustom-modal-header {
+    background-color: #504027;
+    color: #fff;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .cuustom-modal-title {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+  
+  .cuustom-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  /* Modal Body */
+  .cuustom-modal-body {
+    padding: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  
+  /* Modal Footer */
+  .cuustom-modal-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    border-top: 1px solid #ddd;
+  }
+  /* General button styling */
+.cuustom-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Close button styling */
+#cart-close-btn {
+    background-color: #1f1f19; /* Red color for close button */
+    color: #fff; /* White text */
+    float: right;
+}
+
+#cart-close-btn:hover {
+    background-color: #aaae87; /* Darker red on hover */
+}
+
+/* Checkout button styling */
+#checkout-button {
+    background-color: #647135; /* Green color for checkout button */
+    color: #fff; /* White text */
+}
+
+#checkout-button:hover {
+    background-color: #388e3c; /* Darker green on hover */
+}
+
+  
+#cart-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    max-height: 400px;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cart-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cart-item-info {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.cart-item-info h4 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.cart-item-info p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.cart-item-info strong {
+    color: #000;
+}
+
+.cart-item-actions {
+    display: flex;
+    align-items: center;
+}
+
+.cart-item-actions .remove-item {
+    padding: 10px 15px;
+    background-color: #ff4d4f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.cart-item-actions .remove-item:hover {
+    background-color: #e43a3d;
+}
+
+#cartModal {
+    display: none;
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 90%;
+    max-width: 500px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    z-index: 1000;
+}
+
+#cartModal .modal-header {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #333;
+}
+
+#cartModal .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.2em;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #999;
+    transition: color 0.2s;
+}
+
+#cartModal .close:hover {
+    color: #666;
+}
+
+/* Style for the Available Books Section */
+#booksList {
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    margin-top: 20px;
+    display: none; /* Initially hidden */
+}
+
+/* Title of the Available Books Section */
+#booksList h2 {
+    font-size: 2rem;
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Container to hold the list of books */
+#availableBooksContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Individual Book Cards */
+.book-card {
+    background-color: #fff;
+    width: 250px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+/* Hover effect for book cards */
+.book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Book Cover Image */
+.book-cover {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* Book Title */
+.book-card h2 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Book Author */
+.book-card p {
+    color: #666;
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+/* Book Price and Stock */
+.book-card p:last-of-type {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #availableBooksContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .book-card {
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 20px;
+    }
+}
+
+/* Modal Container */
+.modal-container {
+    position: fixed; /* Fixed to the screen */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex; /* Center modal */
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7); /* Darkened background */
+    z-index: 1000; /* Ensure the modal is on top */
+    visibility: visible;
+    overflow: hidden;
+    transition: opacity 0.3s ease; /* Smooth fade-in effect */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px; /* Rounded corners */
+    width: 85%; /* Adjust width */
+    max-width: 700px;
+    max-height: 80%; /* Prevent it from becoming too tall */
+    overflow-y: auto; /* Allow scrolling inside if content is long */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow effect */
+    position: relative;
+    opacity: 1;
+    animation: fadeIn 0.5s ease; /* Smooth fade-in animation */
+}
+
+/* Close Button */
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 30px;
+    color: #333;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.close-modal:hover {
+    transform: rotate(90deg); /* Add a rotation effect on hover */
+}
+
+/* Modal Heading */
+.modal-content h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+/* Modal Image */
+.modal-content img {
+    width: 100%;
+    max-height: 350px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* Price, Rating and Info Section */
+.modal-content p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.modal-content .quantity-input {
+    margin-bottom: 15px;
+}
+
+.modal-content .add-to-cart {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745; /* Green button */
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal-content .add-to-cart:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+/* Reviews Section */
+.reviews {
+    margin-top: 20px;
+}
+
+.reviews .review {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.reviews .review p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #444;
+}
+
+.reviews .review strong {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Rating Stars */
+.star-rating {
+    font-size: 18px;
+}
+
+.star-rating .filled {
+    color: gold;
+}
+
+.star-rating .empty {
+    color: lightgray;
+}
+
+/* Smooth fade-in effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 600px) {
+    .modal-content {
+        width: 90%; /* Take up more width on smaller screens */
+    }
+    .close-modal {
+        font-size: 24px;
+    }
+}
+
+/* Modal container styling */
+.modal-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Modal content styling */
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: fadeIn 0.3s;
+}
+
+/* Close button styling */
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Keyframe for fade-in effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Styling for order details */
+#orderDetails {
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Container for all book cards */
+.book-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Individual book card */
+.book-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 250px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+/* Book cover image */
+.book-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Book details section */
+.book-details {
+    padding: 15px;
+    flex: 1;
+}
+
+/* Book title */
+.book-title {
+    font-size: 1.2em;
+    margin: 10px 0;
+    color: #333;
+}
+
+/* Book description */
+.book-description {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 15px;
+    height: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.4;
+}
+
+/* View Details button */
+.view-details-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.view-details-button:hover {
+    background-color: #0056b3;
+}
+
+#bookComparisonSection {
+    margin: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.comparison {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.comparison h3 {
+    margin: 0;
+}
+
+.comparison p {
+    margin: 5px 0;
+}
+
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+}
+.discount-badge {
+    background-color: green;
+    top: 50px; /* Adjust to avoid overlap with "Best Seller" badge */
+}

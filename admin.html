@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="admin.css"> <!-- External CSS Link -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="dashboard">
+      <!-- Sidebar Navigation -->
+      <aside class="sidebar">
+        <div class="logo">
+          <img src="remov.png" alt="Company Logo" />
+          <h2>Admin Dashboard</h2>
+        </div>
+        <nav>
+          <!-- Manage Publisher Section -->
+          <button onclick="toggleSubNavbar('publisherSubNavbar')">Manage Publisher</button>
+          <div id="publisherSubNavbar" class="sub-navbar">
+            <button onclick="fetchPublishers()">View Publishers</button>
+            <button onclick="showPublisherUpdateForm()">Update Approval Request</button>
+            <button onclick="showPublisherDeleteForm()">Delete Publisher</button>
+           
+          </div>
+          <button onclick="showMonthlySales()">Monthly Sales and Profit</button>
+          <button onclick="showPieChart()">Monthly Sale Graph</button>
+           <!-- Logout Button -->
+          <button id="logoutButton" onclick="logout()">Logout</button>
+ 
+          
+      </aside>
+      
+      <!-- Main Content Area -->
+      <main class="main-content">
+        <header>
+          <div class="header-content">
+            <h1>Admin Dashboard</h1>
+            <div class="profile">
+              <img src="profile-img.jpg" alt="Admin Profile" class="profile-img" />
+              <span class="username">Admin</span>
+            </div>
+          </div>
+        </header>
+
+        <!-- Content Sections -->
+        <div id="contentArea" class="content-area">
+          <!-- Publisher Form Section -->
+          <section id="publisherForm" style="display: none;">
+            <h3>Publisher Form</h3>
+            <!-- <label for="publisherId">Publisher ID:</label>
+            <input type="text" id="publisherId" />
+            <label for="userId">User ID:</label>
+            <input type="text" id="userId" /> -->
+            
+            <label for="approvalStatus">Approval Status:</label>
+            <select id="approvalStatus">
+              <option value="approved">Approved</option>
+              <option value="pending">Pending</option>
+            </select>
+            <!-- <label for="approvalDate">Approval Date:</label>
+            <input type="date" id="approvalDate" /> -->
+            
+          </section>
+          
+          <!-- Publisher Table -->
+          <table id="publisherTable" style="display: none;">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>User ID</th>
+                <th>Name</th>
+                <th>Company Name</th>
+                <th>Phone Number</th>
+                <th>Address</th>
+                <th>Legal Document</th>
+                <th>Approval Status</th>
+                <th>Approval Date</th>
+                
+              </tr>
+            </thead>
+            <tbody id="publisherTableBody"></tbody>
+          </table>
+          
+          <!-- Customer Form Section -->
+          <!-- <section id="customerForm" style="display: none;">
+            <h3>Customer Form</h3>
+            
+            <label for="customerName">Name:</label>
+            <input type="text" id="customerName" />
+            <label for="email">Email:</label>
+            <input type="email" id="email" />
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="text" id="customerPhoneNumber" />
+            <label for="shippingAddress">Shipping Address:</label>
+            <input type="text" id="shippingAddress" />
+            <label for="loyaltyPoints">Loyalty Points:</label>
+            <input type="number" id="loyaltyPoints" />
+            
+          </section>
+           -->
+          <!-- Customer Table -->
+          <!-- <table id="customerTable" style="display: none;">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Shipping Address</th>
+                <th>Loyalty Points</th>
+              </tr>
+            </thead>
+            <tbody id="customerTableBody"></tbody>
+          </table> -->
+          
+          <!-- Category Form Section
+          <section id="categoryForm" style="display: none;">
+            <h3>Category Form</h3>
+            <label for="categoryName">Name:</label>
+            <input type="text" id="categoryName" />
+            
+          </section>
+          
+          < Category Table -->
+          <!-- <table id="categoryTable" style="display: none;">
+            <thead>
+              <tr>
+            
+                <th>Name</th>
+              </tr>
+            </thead>
+            <tbody id="categoryTableBody"></tbody>
+          </table>
+        </div>
+      </main>
+    </div> -->
+    <section id="monthlySalesSection">
+      <h3>Monthly Sales and Profit</h3>
+      <table id="monthlySalesTable">
+        <thead>
+          <tr>
+            <th>Publisher Name</th>
+            <th>Total Sales (PKR)</th>
+            <th>Admin Profit (5%)</th>
+          </tr>
+        </thead>
+        <tbody id="monthlySalesTableBody"></tbody>
+      </table>
+    </section>
+    
+    <section><canvas id="salesChart1" width="400" height="400"></canvas></section>
+    <script src="admin.js"></script> <!-- External JS Link -->
+  </body>
+</html>

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7fc;
+            color: #333;
+        }
+
+        h1,
+        h2 {
+            color: #2c3e50;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        #cart-summary {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            transition: background-color 0.3s ease;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .cart-item:hover {
+            background-color: #ecf0f1;
+        }
+
+        .cart-item img {
+            width: 60px;
+            height: 90px;
+            margin-right: 15px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-details p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        #total-amount {
+            font-weight: bold;
+            margin-top: 20px;
+            font-size: 1.3em;
+            color: #16a085;
+            text-align: right;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        form h2 {
+            margin-top: 0;
+            color: #34495e;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .payment-options label {
+            display: inline-block;
+            margin-right: 20px;
+            font-size: 16px;
+            color: #34495e;
+        }
+
+        .payment-options input {
+            margin-right: 8px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .cart-item-details p strong {
+            font-weight: bold;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .cart-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .cart-item img {
+                margin-bottom: 10px;
+            }
+
+            #total-amount {
+                font-size: 1.1em;
+                margin-top: 10px;
+            }
+
+            button {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Checkout</h1>
+
+        <div class="section" id="cart-summary">
+            <h2>Cart Summary</h2>
+            <div id="cart-summary-content"></div>
+            <div id="total-amount"></div>
+        </div>
+
+        <div class="section">
+            <form id="checkout-form">
+                <h2>Contact Information</h2>
+                <label for="mobile">Mobile Phone Number</label>
+                <input type="text" id="mobile" name="mobile" required>
+
+                <h2>Delivery Information</h2>
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="address">Address</label>
+                <textarea id="address" name="address" required></textarea>
+
+                <h2>Payment Options</h2>
+                <div class="payment-options">
+                    <!-- <label>
+                        <input type="radio" name="payment" value="cash_on_delivery" required> Cash on Delivery
+                    </label> -->
+                    <label>
+                        <input type="radio" name="payment" value="credit_card" checked disabled> Credit Card
+                    </label>
+                </div>
+
+                <button type="submit">Place Order</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchUserDetails();
+            // Retrieve cart data and total amount from localStorage
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const totalAmount = localStorage.getItem('totalAmount') || 0;
+
+            const cartSummaryContent = document.getElementById('cart-summary-content');
+            const totalAmountElement = document.getElementById('total-amount');
+
+            // Populate cart summary
+            cartItems.forEach(item => {
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+
+                cartItem.innerHTML = `
+                    <img src="${item.cover_image}" alt="${item.title}">
+                    <div class="cart-item-details">
+                        <p><strong>${item.title}</strong> by ${item.author}</p>
+                        <p>Price: Rs. ${item.price}</p>
+                        <p>Quantity: ${item.quantity}</p>
+                    </div>
+                `;
+
+                cartSummaryContent.appendChild(cartItem);
+            });
+
+            // Display total amount
+            totalAmountElement.textContent = `Total Amount: Rs. ${totalAmount}`;
+        });
+
+        // Handle the checkout form submission
+        document.getElementById('checkout-form').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const mobile = document.getElementById('mobile').value;
+            const name = document.getElementById('name').value;
+            const address = document.getElementById('address').value;
+            const paymentMethod = document.querySelector('input[name="payment"]:checked').value;
+
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const totalAmount = localStorage.getItem('totalAmount') || 0;
+
+            const orderData = {
+                mobile,
+                name,
+                address,
+                paymentMethod,
+                cartItems,
+                totalAmount
+            };
+
+            const token = localStorage.getItem("jwtToken");
+
+            fetch('http://localhost:8082/place-order', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(orderData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.url) {
+                    console.log("data received");
+                    window.location.href = data.url; // Redirect to Stripe Checkout
+                    // alert('Order placed successfully!');
+                    // Redirect to confirmation page or clear cart
+                    // localStorage.removeItem('cartItems');
+                    // localStorage.removeItem('totalAmount');
+                    
+   
+                   // window.location.href = '/order-confirmation'; // Example redirect to confirmation page
+                } else {
+                    alert('Error placing the order. Please try again.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('There was an error placing the order. Please try again later.');
+            });
+        });
+
+        // Function to fetch user details and populate the form fields
+        function fetchUserDetails() {
+            const token = localStorage.getItem("jwtToken");
+
+            if (!token) {
+                console.error('No JWT token found');
+                return;
+            }
+
+            fetch('http://localhost:8082/checkout/get-user-details', {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                },
+            })
+            .then(response => {
+                if (!response.ok) {
+                    // Log the status code and response text for debugging
+                    console.error('HTTP error', response.status, response.statusText);
+                    return response.text(); // Get the raw response text
+                }
+                return response.json(); // If OK, parse JSON
+            })
+            .then(data => {
+                if (typeof data === 'string' && data.includes('<html>')) {
+                    console.error('Received HTML response:', data); // Log HTML error
+                    return;
+                }
+
+                if (data.error) {
+                    console.error('Error fetching user details:', data.error);
+                } else {
+                    document.getElementById('name').value = data.username || '';
+                    document.getElementById('mobile').value = data.phone_number || '';
+                    document.getElementById('address').value = data.shipping_address || '';
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching user details:', error);
+            });
+        }
+    </script>
+</body>
+
+</html>

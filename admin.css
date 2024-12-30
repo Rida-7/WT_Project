@@ -1,0 +1,153 @@
+/* General Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    min-height: 100vh;
+    background: url('ii.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #f3f1f1;
+}
+
+/* Dashboard Layout */
+.dashboard {
+    display: flex;
+    width: 100%;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 250px;
+    background-color: rgba(44, 62, 80, 0.9);
+    color: #ecf0f1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar button {
+    background: rgba(52, 73, 94, 0.8);
+    color: #ecf0f1;
+    border: none;
+    padding: 12px 20px;
+    margin: 10px 0;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+/* Sidebar button hover effect */
+.sidebar button:hover {
+    background: #edae0f;
+    color: #2c3e50;
+    transform: translateX(5px); /* Slight right movement on hover */
+}
+
+/* Sub-navbar */
+.sub-navbar {
+    display: none;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.sub-navbar button {
+    background: rgba(52, 73, 94, 0.6);
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    color: #ecf0f1;
+    font-size: 14px;
+    border: none;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+/* Sub-navbar button hover effect */
+.sub-navbar button:hover {
+    background: #f39c12;
+    transform: translateX(5px); /* Slight right movement on hover */
+}
+
+/* Active sub-navbar (when shown) */
+.active-sub-navbar {
+    display: block;
+}
+
+/* Main Content Styles */
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+/* Content Sections */
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+}
+
+.form-group {
+    margin: 15px 0;
+    width: 100%;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group button {
+    padding: 12px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background: #3498db;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background: #2980b9;
+    transform: translateY(-3px); /* Slight upward movement on hover */
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #34495e;
+}

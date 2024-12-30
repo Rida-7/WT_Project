@@ -1,0 +1,898 @@
+/* Sidebar Styling */
+.sidebar {
+    width: 240px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: linear-gradient(135deg, #1d2c29, #34495e);
+    color: #ffffff;
+    padding: 20px;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto', sans-serif;
+    transition: all 0.3s ease;
+}
+
+/* .sidebar:hover {
+    width: 280px;
+} */
+
+.sidebar .logo {
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #f39c12;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin: 25px 0;
+}
+
+.sidebar ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    background-color: #f39c12;
+    color: #1d2c29;
+    transform: scale(1.05);
+}
+
+.sidebar ul li a i {
+    margin-right: 15px;
+    font-size: 18px;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 260px;
+    padding: 30px;
+    background: #f4f7f6;
+    min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.main-content h2 {
+    color: #2c3e50;
+    font-weight: 700;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #f39c12;
+    padding-bottom: 10px;
+    font-size: 28px;
+}
+
+/* Overview Cards */
+.overview-cards {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.card {
+    flex: 1;
+    background: #3498db;
+    color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    background-color: #3d54c7;
+}
+
+.card p {
+    margin-top: 15px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Buttons */
+.btn {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Book Table, Order List, Messages */
+.book-table,
+.order-list,
+.messages-container {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.book-table .book-row,
+.order-list .order-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 18px 0;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 16px;
+}
+
+.book-table .book-row p,
+.order-list .order-row p {
+    margin: 0;
+}
+
+.book-table .btn,
+.order-list .btn {
+    background-color: #28a745;
+    color: #ffffff;
+}
+
+.book-table .btn:hover,
+.order-list .btn:hover {
+    background-color: #218838;
+}
+
+/* Analytics Chart
+#salesChart {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+} */
+
+/* Profile Form */
+#profile-form {
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin-bottom: 30px;
+}
+
+#profile-form label {
+    font-weight: 600;
+    color: #34495e;
+}
+
+#profile-form input {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0 25px 0;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+#profile-form input:focus {
+    border-color: #f39c12;
+}
+
+#profile-form button {
+    width: 100%;
+    background-color: #f39c12;
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+#profile-form button:hover {
+    background-color: #8f8021;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .overview-cards {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        border-radius: 0 0 15px 15px;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 90%;
+    /* Shrink width */
+    max-width: 600px;
+    /* Set a maximum width */
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.modal-content h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 24px;
+    /* Reduced heading size */
+}
+
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* Add spacing between form fields */
+}
+
+.modal-content label {
+    font-weight: bold;
+    color: #34495e;
+}
+
+.modal-content input,
+.modal-content select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.modal-content input:focus,
+.modal-content select:focus {
+    border-color: #f39c12;
+    outline: none;
+}
+
+.modal-content button {
+    background-color: #f39c12;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal-content button:hover {
+    background-color: #e67e22;
+}
+
+/* Adjust modal size for smaller screens */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        /* Slightly narrower for small screens */
+        max-width: 450px;
+        /* Smaller max width */
+        padding: 20px;
+    }
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 24px;
+    /* Adjust size for visibility */
+    font-weight: bold;
+    margin-top: -10px;
+    /* Adjust vertical alignment */
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover,
+.close:focus {
+    color: #f39c12;
+    text-decoration: none;
+}
+
+
+/* Form Styling */
+#add-book-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+#add-book-form label {
+    font-weight: bold;
+    color: #34495e;
+    margin-bottom: 5px;
+}
+
+#add-book-form input,
+#add-book-form select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 12px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+#add-book-form input:focus,
+#add-book-form select:focus {
+    border-color: #f39c12;
+    outline: none;
+}
+
+#add-book-form button {
+    grid-column: 1 / span 2;
+    /* Full width button */
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#add-book-form button:hover {
+    background-color: #3d54c7;
+    transform: translateY(-3px);
+}
+
+
+section {
+    display: none;
+}
+
+#overview {
+    display: block;
+    /* Show the overview section initially */
+}
+
+
+.sidebar ul li a.active {
+    background-color: #f39c12;
+    /* Example color */
+    color: #fff;
+    /* Example text color */
+}
+
+
+.book-table {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.book-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.book-image {
+    width: 100%;
+    height: auto;
+    max-width: 200px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.book-info {
+    width: 100%;
+}
+
+.book-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.book-author,
+.book-category,
+.book-price,
+.book-stock {
+    font-size: 1em;
+    margin: 5px 0;
+}
+
+.book-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.btn {
+    padding: 8px 15px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+.btn-edit {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-edit:hover {
+    background-color: #45a049;
+}
+
+.btn-delete {
+    background-color: #f44336;
+    color: white;
+}
+
+.btn-delete:hover {
+    background-color: #e53935;
+}
+
+/* Orders Section */
+#orders {
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+#orders h2 {
+    font-size: 2.5rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Orders List Container */
+.orders-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+/* Order Item Styling */
+.order-item {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    width: 320px;
+    text-align: left;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.order-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    background-color: #f0f8ff;
+}
+
+.order-item h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #007bff;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.order-item p {
+    font-size: 1rem;
+    margin-bottom: 12px;
+    color: #666;
+}
+
+.order-item .status {
+    font-size: 0.9rem;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 20px;
+    color: white;
+    text-transform: uppercase;
+}
+
+.status.pending {
+    background: #f39c12;
+}
+
+.status.completed {
+    background: #28a745;
+}
+
+.status.canceled {
+    background: #dc3545;
+}
+
+/* No orders message */
+.no-orders-message {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #999;
+    margin-top: 50px;
+    font-weight: 500;
+}
+
+/* Button-like Action Link for Orders */
+.order-item .view-details {
+    margin-top: 15px;
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+}
+
+.order-item .view-details:hover {
+    background-color: #0056b3;
+}
+
+/* Spacing between order items */
+.order-item+.order-item {
+    margin-top: 25px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    #orders {
+        padding: 20px;
+    }
+
+    .orders-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .order-item {
+        width: 100%;
+        max-width: 380px;
+    }
+}
+
+/* General Styling */
+#reviews {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#reviews h2 {
+    font-size: 24px;
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Reviews Container */
+.reviews-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Feedback Item */
+.feedback-item {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 15px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.feedback-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.feedback-item h3 {
+    font-size: 18px;
+    color: #555;
+    margin: 0 0 10px;
+}
+
+.feedback-item p {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0;
+    line-height: 1.5;
+}
+
+.feedback-item p.date {
+    font-size: 12px;
+    color: #999;
+    margin-top: 10px;
+}
+
+/* Adjusted Rating Styling */
+.feedback-item p strong {
+    display: inline-block;
+    color: #333;
+    margin-right: 5px;
+}
+
+.feedback-item p strong+span {
+    color: gold;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+/* Additional spacing for ratings */
+.feedback-item p strong:after {
+    content: "";
+}
+
+/* Placeholder Message */
+.reviews-container p {
+    text-align: center;
+    font-size: 16px;
+    color: #777;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #reviews {
+        padding: 15px;
+    }
+
+    .feedback-item {
+        padding: 10px 15px;
+    }
+
+    .feedback-item h3 {
+        font-size: 16px;
+    }
+
+    .feedback-item p {
+        font-size: 13px;
+    }
+
+    .feedback-item p.date {
+        font-size: 11px;
+    }
+}
+
+/* Styling the chart container */
+.chart-container {
+    max-width: 80%;
+    /* Controls the width of the chart container */
+    margin: 0 auto;
+    /* Center the chart horizontally */
+    padding: 20px;
+    /* Adds padding around the chart */
+    box-sizing: border-box;
+    /* Ensures padding doesn't affect width */
+    display: flex;
+    justify-content: space-between;
+    /* Space out the charts if multiple */
+    gap: 20px;
+    /* Gap between charts */
+}
+
+/* Styling individual canvas elements */
+#salesChart1,
+#salesChart2 {
+    width: 100% !important;
+    /* Make the chart responsive */
+    height: 300px !important;
+    /* Set the chart height */
+    border-radius: 8px;
+    /* Rounded corners */
+    border: 1px solid #ddd;
+    /* Light border around the chart */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    /* Add a subtle shadow */
+}
+
+/* Styling chart title */
+.chart-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    /* Adds space between the title and chart */
+    text-align: center;
+    /* Centers the title */
+}
+
+/* Styling the chart legend */
+.chartjs-legend {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Make charts responsive */
+@media (max-width: 768px) {
+    .chart-container {
+        flex-direction: column;
+        /* Stack charts vertically on smaller screens */
+        align-items: center;
+        /* Center the charts */
+    }
+
+    #salesChart1,
+    #salesChart2 {
+        height: 200px !important;
+        /* Adjust height for smaller screens */
+    }
+}
+
+/* Section Styling */
+#discounts {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 30px auto;
+  }
+  
+  #discounts h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Form Styling */
+  #discount-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  #discount-form label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+  }
+  
+  #discount-form input,
+  #discount-form select,
+  #discount-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  #discount-form input:focus,
+  #discount-form select:focus,
+  #discount-form textarea:focus {
+    border-color: #5b9bd5;
+    outline: none;
+  }
+  
+  #discount-form textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  #discount-form .btn {
+    padding: 12px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #discount-form .btn:hover {
+    background-color: #45a049;
+  }
+  
+  #discount-form .btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  /* Mobile Responsiveness */
+  @media (max-width: 600px) {
+    #discounts {
+      width: 100%;
+      padding: 15px;
+    }
+  
+    #discount-form label {
+      font-size: 12px;
+    }
+  
+    #discount-form input,
+    #discount-form select,
+    #discount-form textarea {
+      font-size: 12px;
+    }
+  
+    #discount-form .btn {
+      font-size: 14px;
+      padding: 10px;
+    }
+  }
+  

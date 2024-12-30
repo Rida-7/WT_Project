@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books</title>
+    <style>
+        /* General Reset */
+        body,
+        h1,
+        h2,
+        p,
+        div {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            color: #333;
+            padding: 0 15px;
+        }
+
+        /* Header Styling */
+        header {
+            text-align: center;
+            margin: 20px 0;
+            color: #444;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+        }
+
+        /* Main Container */
+        main {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Book Container */
+        .book-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            justify-content: center;
+        }
+
+        /* Book Card Styling */
+        .book-card {
+            background: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            width: 300px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+
+        .book-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Book Cover Styling */
+        .book-cover {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        /* Title Styling */
+        .book-card h2 {
+            font-size: 1.2rem;
+            margin: 10px 0;
+            color: #34495e;
+            text-align: center;
+        }
+
+        /* Text Styling */
+        .book-card p {
+            font-size: 0.9rem;
+            color: #555;
+            margin: 5px 0;
+        }
+
+        /* Price and Stock Highlight */
+        .book-card p:nth-child(3),
+        .book-card p:nth-child(4) {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .book-card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Available Books</h1>
+    </header>
+    <main>
+        <div id="booksList" class="book-container"></div>
+    </main>
+    <script>
+       fetch('http://localhost:8082/api/books')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Error fetching books: ${response.statusText}`);
+        }
+        return response.json();
+    })
+    .then(books => {
+        console.log('Books fetched:', books); // Debug log
+        const booksList = document.getElementById("booksList");
+        booksList.innerHTML = ''; // Clear existing books
+
+        books.forEach(book => {
+            const bookCard = `
+                <div class="book-card">
+                    <img src="${book.cover_image}" alt="${book.title}" class="book-cover">
+                    <h2>${book.title}</h2>
+                    <p>Author: ${book.author}</p>
+                    <p>Price: $${book.price}</p>
+                    <p>Stock: ${book.stock}</p>
+                </div>
+            `;
+            booksList.innerHTML += bookCard;
+        });
+    })
+    .catch(error => {
+        console.error(error);
+        alert("Failed to load books. Please try again later.");
+    });
+
+
+
+    </script>
+</body>
+
+</html>
