@@ -32,7 +32,7 @@ function showPublisherUpdateForm() {
   publisherIdSelect.id = "publisherId";
 
   // Fetch publishers and populate the dropdown
-  fetch("http://localhost:8082/publishers", {
+  fetch("https://accidental-glen-kingfisher.glitch.me/publishers", {
       method: "GET",
       headers: {
           "Authorization": `Bearer ${token}`
@@ -91,7 +91,7 @@ function showPublisherUpdateForm() {
           console.log("Approval status:", newStatus);
 
           // Make the API call to update the status
-          fetch(`http://localhost:8082/publisher/update/${publisherId}`, {
+          fetch(`https://accidental-glen-kingfisher.glitch.me/publisher/update/${publisherId}`, {
               method: "PUT",
               headers: {
                   "Authorization": `Bearer ${token}`,
@@ -142,7 +142,7 @@ function showPublisherDeleteForm() {
   if (!publisherId) return;
 
   if (confirm("Are you sure you want to delete this publisher?")) {
-    fetch(`http://localhost:8082/publisher/delete/${publisherId}`, { method: 'DELETE' })
+    fetch(`https://accidental-glen-kingfisher.glitch.me/publisher/delete/${publisherId}`, { method: 'DELETE' })
       .then(response => {
         if (!response.ok) throw new Error('Failed to delete publisher.');
         return response.json();
@@ -166,7 +166,7 @@ function fetchPublishers() {
     return;
   }
 
-  fetch('http://localhost:8082/publishers', {  
+  fetch('https://accidental-glen-kingfisher.glitch.me/publishers', {  
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
@@ -225,7 +225,7 @@ function fetchCustomers() {
     return;
   }
 
-  fetch('http://localhost:8082/customers', {  
+  fetch('https://accidental-glen-kingfisher.glitch.me/customers', {  
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
@@ -280,7 +280,7 @@ function showMonthlySales() {
   document.getElementById('monthlySalesSection').style.display = 'block';
 
   // Fetch sales data from the backend
-  fetch('http://localhost:8082/admin/monthly-sales')
+  fetch('https://accidental-glen-kingfisher.glitch.me/admin/monthly-sales')
       .then(response => response.json())
       .then(data => {
           console.log('Received data:', data);  // Log the received data for debugging
@@ -329,7 +329,7 @@ function populateMonthlySalesTable(salesData) {
 // Function to display the chart
 function showPieChart() {
   // Fetch monthly sales data from the backend
-  fetch('http://localhost:8082/admin/monthly-sales')  // Update this URL if necessary
+  fetch('https://accidental-glen-kingfisher.glitch.me/admin/monthly-sales')  // Update this URL if necessary
       .then(response => response.json())
       .then(data => {
           if (data.success) {
