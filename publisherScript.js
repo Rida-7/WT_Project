@@ -38,7 +38,7 @@ function fetchPublisherOverview() {
     console.error("JWT token not found in localStorage");
     return; // Exit if token is not available
   }
-  fetch(`http://localhost:8082/publisher/overview`, {
+  fetch(`https://accidental-glen-kingfisher.glitch.me/publisher/overview`, {
     method: 'GET',
     headers: {
       'Authorization': `Bearer ${token}`,
@@ -67,7 +67,7 @@ function fetchBooks() {
     console.error("JWT token not found in localStorage");
     return; // Exit if token is not available
   }
-  fetch(`http://localhost:8082/publisher/listings`, {
+  fetch(`https://accidental-glen-kingfisher.glitch.me/publisher/listings`, {
     method: 'GET',
     headers: {
       'Authorization': `Bearer ${token}`,
@@ -161,7 +161,7 @@ document.getElementById("add-book-form").addEventListener("submit", async functi
   }
 
   try {
-    const response = await fetch("http://localhost:8082/publisher/add-book", {
+    const response = await fetch("https://accidental-glen-kingfisher.glitch.me/publisher/add-book", {
       method: "POST",
       headers: {
         "Authorization": `Bearer ${token}`, // Include token in headers
@@ -190,7 +190,7 @@ function deleteBook(bookId) {
     return; // Exit if token is not available
   }
 
-  fetch(`http://localhost:8082/books/${bookId}`, {
+  fetch(`https://accidental-glen-kingfisher.glitch.me/books/${bookId}`, {
     method: "DELETE",
     headers: {
       'Authorization': `Bearer ${token}`,
@@ -218,7 +218,7 @@ function editBook(bookId) {
       return;
   }
 
-  fetch(`http://localhost:8082/publisher/listings/${bookId}`, {
+  fetch(`https://accidental-glen-kingfisher.glitch.me/publisher/listings/${bookId}`, {
       method: "GET",
       headers: {
           'Authorization': `Bearer ${token}`,
@@ -298,7 +298,7 @@ async function updateBook() {
       category_names: document.getElementById("edit-book-category").value.split(", ").join(", ")
   };
 
-  fetch(`http://localhost:8082/publisher/listings/${bookId}`, {
+  fetch(`https://accidental-glen-kingfisher.glitch.me/publisher/listings/${bookId}`, {
       method: "PUT",
       headers: {
           'Authorization': `Bearer ${token}`,
@@ -345,7 +345,7 @@ function fetchPublisherOrders() {
     return; // Exit if token is not available
   }
 
-  fetch(`http://localhost:8082/publisher/orders`, {
+  fetch(`https://accidental-glen-kingfisher.glitch.me/publisher/orders`, {
     method: 'GET',
     headers: {
       'Authorization': `Bearer ${token}`,
@@ -436,7 +436,7 @@ function loadFeedback() {
     return; // Exit if token is not available
   }
 
-  fetch(`http://localhost:8082/publisher/feedback`, {
+  fetch(`https://accidental-glen-kingfisher.glitch.me/publisher/feedback`, {
     method: 'GET',
     headers: {
       'Authorization': `Bearer ${token}`,
@@ -495,7 +495,7 @@ function analytics() {
     return; // Exit if token is not available
   }
   // Request sales analytics data for the logged-in publisher
-  fetch(`http://localhost:8082/analytics/sales`, {
+  fetch(`https://accidental-glen-kingfisher.glitch.me/analytics/sales`, {
     method: 'GET',
     headers: {
       'Authorization': `Bearer ${token}`,
@@ -626,7 +626,7 @@ function updateTopBooksChart(topBooks) {
 //     return; // Exit if token is not available
 //   }
 //   // Send the discount data to the server via fetch
-//   fetch('http://localhost:8082/discounts', {
+//   fetch('https://accidental-glen-kingfisher.glitch.me/discounts', {
 //     method: 'POST',
 //     headers: {
 //       'Content-Type': 'application/json',
@@ -659,7 +659,7 @@ function updateTopBooksChart(topBooks) {
 //     console.error("JWT token not found in localStorage");
 //     return; // Exit if token is not available
 //   }
-//   fetch(`http://localhost:8082/profile`, {
+//   fetch(`https://accidental-glen-kingfisher.glitch.me/profile`, {
 //     method: 'GET',
 //     headers: {
 //       'Authorization': `Bearer ${token}`,
@@ -716,7 +716,7 @@ function updateTopBooksChart(topBooks) {
 
 //   try {
 //     console.log("Sending API request...");
-//     const response = await fetch(`http://localhost:8082/updateProfile`, {
+//     const response = await fetch(`https://accidental-glen-kingfisher.glitch.me/updateProfile`, {
 //       method: 'POST',
 //       headers: { Authorization: `Bearer ${token}` },
 //       body: formData,
@@ -813,7 +813,7 @@ document.querySelector('.logout').addEventListener('click', function(event) {
 
 
 function discount() {
-  fetch('http://localhost:8082/publisher-books',{
+  fetch('https://accidental-glen-kingfisher.glitch.me/publisher-books',{
     method: 'GET',
     headers: {
       'Authorization': `Bearer ${localStorage.getItem('jwtToken')}`
@@ -843,7 +843,7 @@ function discount() {
       publisherBookId: document.getElementById('book-select').value
     };
 
-    fetch('http://localhost:8082/apply-discount', {
+    fetch('https://accidental-glen-kingfisher.glitch.me/apply-discount', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
