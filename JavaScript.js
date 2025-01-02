@@ -24,7 +24,7 @@ async function handleGoogleSignIn() {
         const email = user._delegate.email;
         console.log("User authenticated via Google:", email);
 
-        const response = await fetch('http://localhost:8082/check-user', {
+        const response = await fetch('https://accidental-glen-kingfisher.glitch.me/check-user', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email: user.email })
@@ -91,7 +91,7 @@ function showRoleSelectionModal(user) {
         }
 
         try {
-            const signupResponse = await fetch('http://localhost:8082/signup', {
+            const signupResponse = await fetch('https://accidental-glen-kingfisher.glitch.me/signup', {
                 method: 'POST',
                 body: formData // Send FormData instead of JSON
             });
@@ -142,7 +142,7 @@ document.getElementById('resetPasswordForm').addEventListener('submit', function
     }
 
     // Send the email and new password to the server
-    fetch('http://localhost:8082/reset-password', {
+    fetch('https://accidental-glen-kingfisher.glitch.me/reset-password', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -169,7 +169,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
     const email = document.getElementById('loginEmail').value;
     const password = document.getElementById('loginPassword').value;
 
-    const response = await fetch('http://localhost:8082/signin', {
+    const response = await fetch('https://accidental-glen-kingfisher.glitch.me/signin', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
@@ -233,7 +233,7 @@ document.getElementById('signupForm').addEventListener('submit', async function 
 
     try {
         // Check if user already exists
-        const checkUserResponse = await fetch('http://localhost:8082/check-user', {
+        const checkUserResponse = await fetch('https://accidental-glen-kingfisher.glitch.me/check-user', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email: document.getElementById('signupEmail').value })
@@ -246,7 +246,7 @@ document.getElementById('signupForm').addEventListener('submit', async function 
         }
 
         // Proceed with sign-up
-        const signupResponse = await fetch('http://localhost:8082/signup', {
+        const signupResponse = await fetch('https://accidental-glen-kingfisher.glitch.me/signup', {
             method: 'POST',
             body: formData // Send the FormData object
         });
@@ -387,7 +387,7 @@ function toggleGoogleField() {
 
 // Function to fetch user role from the backend
 function fetchUserRole(token) {
-    return fetch('http://localhost:8082/get-user-role', {
+    return fetch('https://accidental-glen-kingfisher.glitch.me/get-user-role', {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${token}`
@@ -411,7 +411,7 @@ function fetchUserRole(token) {
 function fetchCartData(token) {
     console.log('Retrieving Cart Data with Token:', token);
 
-    fetch('http://localhost:8082/get-cart', {
+    fetch('https://accidental-glen-kingfisher.glitch.me/get-cart', {
         method: 'POST',
         headers: {
             'Authorization': `Bearer ${token}`,
@@ -537,7 +537,7 @@ function updateCartItemQuantity(cartItemId, newQuantity) {
     }
 
     // Make API request to update the cart item
-    fetch(`http://localhost:8082/cart/update`, {
+    fetch(`https://accidental-glen-kingfisher.glitch.me/cart/update`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -577,7 +577,7 @@ function removeCartItem(itemId) {
         return;
     }
 
-    fetch('http://localhost:8082/remove-item', {
+    fetch('https://accidental-glen-kingfisher.glitch.me/remove-item', {
         method: 'DELETE',
         headers: {
             'Authorization': `Bearer ${token}`,
@@ -722,7 +722,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function checkAdmin() {
     // Fetch to check if an admin already exists
-    fetch('http://localhost:8082/check-admin')
+    fetch('https://accidental-glen-kingfisher.glitch.me/check-admin')
         .then(response => response.json())
         .then(data => {
             // If an admin already exists, hide the admin option
@@ -744,7 +744,7 @@ function fetchBooksByCategory(category) {
     bookedList.style.display = "block";
 
     // Fetch books by category
-    fetch(`http://localhost:8082/api/books/category/${encodeURIComponent(category)}`)
+    fetch(`https://accidental-glen-kingfisher.glitch.me/api/books/category/${encodeURIComponent(category)}`)
         .then(response => {
             if (!response.ok) throw new Error("Failed to fetch books");
             return response.json();
@@ -776,7 +776,7 @@ function fetchBooksByCategory(category) {
 }
 
 async function fetchCategories() {
-    fetch('http://localhost:8082/fetch_categories')
+    fetch('https://accidental-glen-kingfisher.glitch.me/fetch_categories')
         .then(response => response.json())
         .then(data => {
             const dropdown = document.getElementById('categoriesDropdown');
@@ -797,7 +797,7 @@ async function fetchCategories() {
 }
 
 async function fetchAuthors() {
-    fetch('http://localhost:8082/fetch_authors')
+    fetch('https://accidental-glen-kingfisher.glitch.me/fetch_authors')
         .then(response => response.json())
         .then(data => {
             const dropdown = document.getElementById('authorsDropdown');
@@ -829,7 +829,7 @@ function fetchBooksByAuthor(author) {
     bookedList.style.display = "block";
 
     // Fetch books by author
-    fetch(`http://localhost:8082/api/books/${encodeURIComponent(author)}`)
+    fetch(`https://accidental-glen-kingfisher.glitch.me/api/books/${encodeURIComponent(author)}`)
         .then(response => {
             if (!response.ok) throw new Error("Failed to fetch books");
             return response.json();
@@ -862,7 +862,7 @@ function fetchBooksByAuthor(author) {
 
 
 function fetchFeaturedBooks() {
-    fetch('http://localhost:8082/api/featured-books')
+    fetch('https://accidental-glen-kingfisher.glitch.me/api/featured-books')
         .then(response => response.json())
         .then(books => {
             const booksCarouselInner = document.getElementById('booksCarouselInner');
@@ -929,7 +929,7 @@ fetchFeaturedBooks();
 setInterval(fetchFeaturedBooks, 30000);
 
 function fetchBestSellers() {
-    fetch('http://localhost:8082/best-sellers')
+    fetch('https://accidental-glen-kingfisher.glitch.me/best-sellers')
         .then(response => response.json())
         .then(books => {
             const booksCarouselInner = document.getElementById('bestSellersCarouselInner');
@@ -990,7 +990,7 @@ function fetchBestSellers() {
 }
 
 function fetchNewArrivals() {
-    fetch('http://localhost:8082/api/new-arrivals')
+    fetch('https://accidental-glen-kingfisher.glitch.me/api/new-arrivals')
         .then(response => response.json())
         .then(books => {
             const carouselContent = document.getElementById('carouselContent');
@@ -1046,7 +1046,7 @@ function openBookDetail(bookId) {
     const modalContent = document.getElementById("bookDetailContent");
 
     // Fetch book details
-    fetch(`http://localhost:8082/api/book/${bookId}`, {
+    fetch(`https://accidental-glen-kingfisher.glitch.me/api/book/${bookId}`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
     })
@@ -1116,7 +1116,7 @@ function openBookDetail(bookId) {
             `;
 
             // Fetch price comparison data
-            return fetch(`http://localhost:8082/compare_price/${encodeURIComponent(book.title)}`, {
+            return fetch(`https://accidental-glen-kingfisher.glitch.me/compare_price/${encodeURIComponent(book.title)}`, {
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' },
             })
@@ -1191,7 +1191,7 @@ function submitReview(event, bookId) {
     };
 
     // Send the review data to the server
-    fetch(`http://localhost:8082/api/book/${bookId}/review`, {
+    fetch(`https://accidental-glen-kingfisher.glitch.me/api/book/${bookId}/review`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -1227,7 +1227,7 @@ function addToCart(bookId) {
     }
 
     const quantity = document.getElementById("quantity").value;
-    fetch('http://localhost:8082/api/cart', {
+    fetch('https://accidental-glen-kingfisher.glitch.me/api/cart', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -1280,7 +1280,7 @@ document.getElementById("feedbackForm").addEventListener("submit", function (eve
 });
 
 function loadAvailableBooks() {
-    fetch('http://localhost:8082/api/books')
+    fetch('https://accidental-glen-kingfisher.glitch.me/api/books')
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Error fetching books: ${response.statusText}`);
@@ -1325,7 +1325,7 @@ function trackMyOrder() {
     if (!token) {
         alert("Please login first");
     }
-    fetch("http://localhost:8082/api/orders", {
+    fetch("https://accidental-glen-kingfisher.glitch.me/api/orders", {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -1375,7 +1375,7 @@ async function fetchComparison() {
     const resultsDiv = document.getElementById('comparisonResults');
 
     try {
-        const response = await fetch('http://localhost:8082/compare_price/:book'); // Backend endpoint to get comparison data
+        const response = await fetch('https://accidental-glen-kingfisher.glitch.me/compare_price/:book'); // Backend endpoint to get comparison data
         const data = await response.json();
 
         if (response.ok) {
